@@ -1,21 +1,27 @@
 document.getElementById('postDataForm').addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent the form from submitting the traditional way
 
-    // Get the values from the input fields
-    const username = document.getElementById('username').value;
+    const acc = "cr_master_signup";
+    const mobile = "8940570614"
+    const name = document.getElementById('name').value;
     const email = document.getElementById('email').value;
+    const password = "akila968";
 
-    // Data to be sent to the API
     const data = {
-        username: username,
-        email: email
+        acc: acc,
+        mobile: mobile,
+        name: name,
+        email: email,
+        password: password
     };
 
+    console.log(JSON.stringify(data));
+
     // POST request to the API
-    fetch('https://jsonplaceholder.typicode.com/posts', {
-        method: 'POST', // HTTP method
+    fetch('https://skyblue.co.in/skyblue_main.php', {
+        method: 'POST', 
         headers: {
-            'Content-Type': 'application/json' // Content type
+            'Content-Type': 'application/json' 
         },
         body: JSON.stringify(data) // Convert the data object to a JSON string
     })
@@ -23,10 +29,12 @@ document.getElementById('postDataForm').addEventListener('submit', function(even
     .then(data => {
         // Handle the response data
         const responseMessage = document.getElementById('responseMessage');
-        responseMessage.textContent = 'Data submitted successfully!';
+        responseMessage.textContent = 'Data submitted successfully!' + data;
         console.log('Success:', data);
+
+        alert(data);
     })
     .catch((error) => {
-        console.error('Error:', error);
+        // console.error('Error:', error);
     });
 });
