@@ -1,6 +1,6 @@
 <?php
 
-include "s_connect.php";
+include "connect.php";
 include "functions.php";
 
 // Get the raw POST data 
